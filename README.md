@@ -73,17 +73,23 @@ Project Flow
 1.User Registration/Login
 → User signs up or logs in.
 → JWT token is generated for authentication.
+
 2.Fetch Coding Questions
 → Authenticated user gets a list of coding problems.
+
 3.Write & Submit Code
 → User writes code and submits it for a selected question.
+
 4.Code Execution (Judge0 API)
 → Backend sends code to Judge0 API for execution.
 → Output is received and compared with test cases.
+
 5.Store Submission Result
 → Result (pass/fail) is stored in progress.json.
+
 6.View Progress
 → User can view their solved/unsolved problems.
+
 7.JWT-Protected Routes
 → Only logged-in users can access submissions, exercises, and progress.
 
