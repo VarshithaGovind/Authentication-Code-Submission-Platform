@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeCraft - Code Playground</title>
+    <link rel="stylesheet" href="styles/compiler.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
+</head>
+<body>
+    <div class="editor-app">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                CodeCraft Playground
+            </div>
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                Live Preview
+            </div>
+            <div class="header-buttons">
+                <button id="saveProgress" class="run-button secondary">
+                    <i class="fas fa-save"></i> Save
+                </button>
+                <button id="toggleQuestion" class="run-button secondary">
+                    <i class="fas fa-question-circle"></i> Question
+                </button>
+                <button id="backToDashboard" class="run-button secondary">
+                    <i class="fas fa-arrow-left"></i> Dashboard
+                </button>
+                <button id="runButton" class="run-button">
+                    <i class="fas fa-play"></i> Run
+                </button>
+            </div>
+        </div>
+
+        <!-- Question Panel (Collapsible) -->
+        <div class="question-panel" id="questionPanel">
+            <div class="question-content">
+                <div id="questionContent">
+                    <h3>Question</h3>
+                    <div id="questionText">
+                        <p>Welcome to CodeCraft! This is a powerful code playground where you can write HTML, CSS, and JavaScript code and see the results in real-time.</p>
+                        <p>Try creating a simple webpage with some styling and interactivity!</p>
+                    </div>
+                </div>
+                <div id="theoryContent">
+                    <h3>Theory & Explanation</h3>
+                    <div id="theoryText">
+                        <p>This playground supports:</p>
+                        <ul>
+                            <li><strong>HTML</strong> - Structure your content</li>
+                            <li><strong>CSS</strong> - Style your elements</li>
+                            <li><strong>JavaScript</strong> - Add interactivity</li>
+                        </ul>
+                        <p>Use the tabs to switch between different languages and see your changes in the preview pane.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="editor-section">
+                <div class="tabs">
+                    <button class="tab active" data-tab="html">
+                        <i class="fab fa-html5"></i> HTML
+                    </button>
+                    <button class="tab" data-tab="css">
+                        <i class="fab fa-css3-alt"></i> CSS
+                    </button>
+                    <button class="tab" data-tab="js">
+                        <i class="fab fa-js"></i> JS
+                    </button>
+                </div>
+                <div class="editor-container">
+                    <textarea id="htmlEditor"></textarea>
+                    <textarea id="cssEditor"></textarea>
+                    <textarea id="jsEditor"></textarea>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <div class="output-header">
+                    <i class="fas fa-eye"></i> Output Preview
+                </div>
+                <iframe id="preview" class="output-iframe" sandbox="allow-scripts"></iframe>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <div class="auto-save-indicator" id="autoSaveIndicator">
+                <i class="fas fa-circle"></i>
+                <span>Ready</span>
+            </div>
+            <div class="editor-info">
+                <span id="editorLanguage">HTML</span>
+                <span> | </span>
+                <span id="cursorPosition">Ln 1, Col 1</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/compiler.js"></script>
+</body>
+</html>

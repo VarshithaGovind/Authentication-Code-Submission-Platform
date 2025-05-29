@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechLearn Solutions - Learn Coding</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="logo-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/image.png" alt="TechLearn Logo" class="logo-img">
+            </div>
+            <a href="#" class="brand-text">TechLearn Solutions</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <div class="welcome-content">
+                    <h1>Welcome to TechLearn</h1>
+                    <p>Your journey to becoming a coding expert starts here. Join thousands of developers who trust TechLearn for their programming education.</p>
+                    
+                    <div class="features">
+                        <div class="feature-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Interactive Coding Practice</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <span>Expert-Led Live Sessions</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>Industry-Recognized Certificates</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>Real-World Project Portfolio</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-infinity"></i>
+                            <span>Lifetime Access & Updates</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Forms Section -->
+            <div class="forms-section">
+                <div class="form-container">
+                    <!-- Form Toggle -->
+                    <div class="form-toggle">
+                        <button class="toggle-btn active" data-form="signin">Sign In</button>
+                        <button class="toggle-btn" data-form="signup">Sign Up</button>
+                    </div>
+
+                    <!-- Sign In Form -->
+                    <form id="signin-form" class="active">
+                        <h2 class="title">Welcome Back</h2>
+                        <div class="input-field">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" placeholder="Email" required />
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" required />
+                        </div>
+                        <button type="submit" class="btn">Login</button>
+                        <p class="social-text">Or Sign in with social platforms</p>
+                        <div class="social-media">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </form>
+
+                    <!-- Sign Up Form -->
+                    <form id="signup-form">
+                        <h2 class="title">Create Account</h2>
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="name" placeholder="Full Name" required />
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Email" required />
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" name="mobile_number" placeholder="Mobile Number" required />
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-venus-mars"></i>
+                            <select name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="Password" required />
+                        </div>
+                        <div class="password-requirements" id="password-requirements" style="display: none;">
+                            <p>Password must contain:</p>
+                            <ul>
+                                <li id="length">At least 8 characters</li>
+                                <li id="uppercase">One uppercase letter</li>
+                                <li id="lowercase">One lowercase letter</li>
+                                <li id="number">One number</li>
+                                <li id="special">One special character</li>
+                            </ul>
+                        </div>
+                        <div class="input-field">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm Password" required />
+                        </div>
+                        <div id="error-message" class="error-message" style="display: none;"></div>
+                        <button type="submit" class="btn">Sign Up</button>
+                        <p class="social-text">Or Sign up with social platforms</p>
+                        <div class="social-media">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="scripts/auth.js"></script>
+</body>
+</html>

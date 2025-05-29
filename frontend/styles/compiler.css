@@ -1,0 +1,319 @@
+/* Custom styles to maintain the original look with Bootstrap */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.editor-app {
+    height: 100vh;
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.header {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-size: 0.875rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.header-buttons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.run-button {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.run-button:hover {
+    background: #0d47a1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.run-button.secondary {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.run-button.secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.run-button.running {
+    animation: buttonPulse 0.5s ease-in-out;
+}
+
+@keyframes buttonPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.question-panel {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+.question-panel.active {
+    display: block;
+}
+
+.question-content {
+    padding: 1.5rem;
+    color: white;
+}
+
+.question-content h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.question-content p {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    min-height: 0;
+}
+
+.editor-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+
+.tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tab {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tab.active {
+    color: white;
+    border-bottom-color: white;
+}
+
+.tab:hover:not(.active) {
+    color: white;
+}
+
+.editor-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.editor-container .CodeMirror {
+    height: 100%;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.editor-container textarea {
+    display: none;
+}
+
+.editor-container .CodeMirror-gutters {
+    background: rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.editor-container .CodeMirror-linenumber {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.editor-container .CodeMirror-cursor {
+    border-left: 2px solid #fff;
+}
+
+.editor-container .CodeMirror-selected {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.editor-container .CodeMirror-focused .CodeMirror-selected {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.editor-container .CodeMirror-matchingbracket {
+    color: #1a73e8 !important;
+    border-bottom: 1px solid #1a73e8;
+}
+
+.editor-container .CodeMirror-nonmatchingbracket {
+    color: #dc3545 !important;
+    border-bottom: 1px solid #dc3545;
+}
+
+.output-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    background: white;
+}
+
+.output-header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1rem;
+    color: white;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.output-iframe {
+    flex: 1;
+    border: none;
+    background: white;
+}
+
+.output-iframe.updating {
+    opacity: 0.8;
+    transform: scale(0.99);
+    transition: all 0.3s ease;
+}
+
+.status-bar {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.875rem;
+}
+
+.auto-save-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.auto-save-indicator i {
+    color: #10b981;
+}
+
+.editor-info {
+    display: flex;
+    gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .editor-section,
+    .output-section {
+        min-width: 100%;
+    }
+
+    .header {
+        padding: 1rem;
+    }
+
+    .header-buttons {
+        gap: 0.5rem;
+    }
+
+    .run-button {
+        padding: 0.5rem 1rem;
+    }
+}
